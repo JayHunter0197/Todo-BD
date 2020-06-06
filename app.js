@@ -10,22 +10,39 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 
-var moongose = require("mongoose");
+const mongoose = require("mongoose");
 
 // make the connection to the DB
-moongose.connect("mongodb://locashost/27017/todolistDB",{useNewUrlParser: true});
+mongoose.connect("mongodb://localhost:27017/todolistdb", {
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+});
 
 // how we want the data to be structured in the collection
-const itemsSchema = new mongoose.Schema({
+const itemsSchema = {
 	name: String,
-});
+};
 
 
 // create the collections params *name of the DB, the schema of the DB*
 const Item = mongoose.model("Item", itemsSchema);
 
-// 1 param= location, 2 param callback  function (request and respond)
-// do sth with the request/response in the callback function
+const item1 = new Item({name: "Buy Food"});
+//item1.save();
+
+const item2 = new Item({name: "Cook Food"});
+//item2.save();
+
+const item3 = new Item({name: "Eat Food"});
+//item3.save();
+
+const tasks= [item1, item2, item3];
+
+ Item.insertMany(tasks, function (err) {
+ 	if (err) console.log(err);
+ 	else console.log("Data successfully saved into  todolist DB");
+ });
+
 app.get("/", function(req, res) {
 	
 	res.render("list", { listTitle: "Today", newTask: tasks });
