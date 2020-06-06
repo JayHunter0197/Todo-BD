@@ -1,8 +1,8 @@
 html {
 	background-color: #000839;
-	background-image: -webkit-linear-gradient(65deg, #ffa41b 50%, #000839 50%);
+	background-image: -webkit-linear-gradient(65deg, #162447 50%, #9d0b0b 50%);
 	min-height: 1000px;
-	font-family: "helvetica neue";
+	font-family: "helvetica neue";	
 }
 
 h1,
@@ -23,7 +23,7 @@ li {
 }
 
 #heading {
-	background-color: #ffa41b;
+	background-color: #232020;
 	text-align: center;
 }
 
@@ -40,7 +40,7 @@ li {
 
 input:checked + p {
 	text-decoration: line-through;
-	text-decoration-color: #ffa41b;
+	text-decoration-color: #232020;
 }
 
 input[type="checkbox"] {
@@ -52,7 +52,7 @@ p {
 	padding: 20px;
 	font-size: 20px;
 	font-weight: 200;
-	color: #00204a;
+	color: #232020;
 }
 
 form {
@@ -65,7 +65,7 @@ button {
 	width: 50px;
 	border-radius: 50%;
 	border-color: transparent;
-	background-color: #ffa41b;
+	background-color: #232020;
 	color: #fff;
 	font-size: 30px;
 	padding-bottom: 5px;
@@ -85,7 +85,7 @@ input[type="text"] {
 
 input[type="text"]:focus {
 	outline: none;
-	box-shadow: inset 0 -3px 0 0 #ffa41b;
+	box-shadow: inset 0 -3px 0 0 #222831;
 }
 
 ::placeholder {
@@ -95,6 +95,5 @@ input[type="text"]:focus {
 
 footer {
 	color: white;
-	color: rgba(0, 0, 0, 0.5);
 	text-align: center;
 }
