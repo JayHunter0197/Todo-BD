@@ -10,10 +10,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 
-const mongoose = require("mongoose");
+const mongoose = require("mongoose");	
 
 // make the connection to the DB
-mongoose.connect("mongodb://localhost:27017/todolistdb", {
+mongoose.connect("mongodb://localhost:27017/todolistDB", {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 });
