@@ -12,14 +12,22 @@ app.use(express.static("public"));
 // in order to use a module we create we need to give it´s path
 var date = require(__dirname + "/date.js");
 
-var tasks = ["Buy Food", "Cook the Food", "Eat Food"];
-var workTasks = [];
+var moongose = require("mongoose");
+
+moongose.connect("mongodb://locashost/27017/todolistDB",{useNewUrlParser: true});
+
+// how we want the data to be structured in the collection
+const itemsSchema = new mongoose.Schema({
+	name: String,
+});
+// create the collections params *name of the DB, the schema of the DB*
+const Item = mongoose.model("Item", itemsSchema);
 
 // 1 param= location, 2 param callback  function (request and respond)
 // do sth with the request/response in the callback function
 app.get("/", function(req, res) {
 	let day = date.getDate();
-
+ 
 	// send the value to the ejs file so it can be displayed.
 	// params *name of the ejs file, js object with a key and the value *
 	res.render("list", { listTitle: day, newTask: tasks });
