@@ -96,4 +96,6 @@ input[type="text"]:focus {
 footer {
 	color: white;
 	text-align: center;
+	font-size: 20px;
+	font-weight: 200;
 }
