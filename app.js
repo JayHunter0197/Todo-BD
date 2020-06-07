@@ -12,7 +12,7 @@ app.use(express.static("public"));
 
 const mongoose = require("mongoose");	
 
-// make the connection to the DB
+// make the connection to the DB 
 mongoose.connect("mongodb://localhost:27017/todolistDB", {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
@@ -24,11 +24,11 @@ const itemsSchema = {
 };
 
 
-// create the collections params *name of the DB, the schema of the DB*
+// create the collections -- params: name of the DB, the schema of the DB--
 const Item = mongoose.model("Item", itemsSchema);
 
 const item1 = new Item({name: "Buy Food"});
-//item1.save();
+
 
 const item2 = new Item({name: "Cook Food"});
 //item2.save();
@@ -38,14 +38,37 @@ const item3 = new Item({name: "Eat Food"});
 
 const tasks= [item1, item2, item3];
 
- Item.insertMany(tasks, function (err) {
- 	if (err) console.log(err);
- 	else console.log("Data successfully saved into  todolist DB");
- });
+// // insert the values in the DB
+//  Item.insertMany(tasks, function (err) {
+//  	if (err) console.log(err);
+//  	else console.log("Data successfully saved into  todolist DB");
+//  });
+
+// // executes, passing results to callback
+// Item.find( {},function (err, docs) {
+// 	if (err) console.log(err);
+// 	else console.log(docs)
+// });
 
 app.get("/", function(req, res) {
 	
-	res.render("list", { listTitle: "Today", newTask: tasks });
+	// executes, passing results to callback
+	Item.find( {},function (err, docs) {
+		if(docs.length==0)
+		{
+			Item.insertMany(tasks, function (err) {
+				if (err) console.log(err);
+				else console.log("Data successfully saved into  todolist DB");
+			});
+		   res.redirect("/");
+		}
+
+		else
+		{
+			res.render("list", { listTitle: "Today", newTask: tasks });
+		}	
+	});
+
 
 });
 
