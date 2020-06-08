@@ -36,7 +36,7 @@ const item2 = new Item({name: "Cook Food"});
 const item3 = new Item({name: "Eat Food"});
 //item3.save();
 
-const tasks= [item1, item2, item3];
+const tasks = [item1,item2, item3]
 
 // // insert the values in the DB
 //  Item.insertMany(tasks, function (err) {
@@ -52,10 +52,12 @@ const tasks= [item1, item2, item3];
 
 app.get("/", function(req, res) {
 	
-	// executes, passing results to callback
+	// obtain all the data from the DB
 	Item.find( {},function (err, docs) {
+		// if the db is empty insert default values (tasks)
 		if(docs.length==0)
 		{
+			// insert the initial values for the todo 
 			Item.insertMany(tasks, function (err) {
 				if (err) console.log(err);
 				else console.log("Data successfully saved into  todolist DB");
@@ -65,7 +67,7 @@ app.get("/", function(req, res) {
 
 		else
 		{
-			res.render("list", { listTitle: "Today", newTask: tasks });
+			res.render("list", { listTitle: "Today", newTask: docs });
 		}	
 	});
 
@@ -76,21 +78,26 @@ app.get("/about", function(req, res) {
 	res.render("about");
 });
 
+
 app.get("/work", function(req, res) {
 	res.render("list", { listTitle: "Work List", newTask: workTasks });
 });
 
 app.post("/", function(req, res) {
-	let task = req.body.newTask;
-	//console.log(req.body);
-	if (req.body.list === "Work") {
-		workTasks.push(task);
-		res.redirect("/work");
-	} else {
-		tasks.push(task);
-		res.redirect("/");
-	}
+	// obtain the item enter by the user
+	 const itenName = req.body.newTask;
+	 const listItem = new Item({name: itenName});
+	 // save the item in the DB
+	 listItem.save();
+	 res.redirect("/");
+	 
+	
 });
+
+app.post("/delete", function(req,res){
+
+});
+
 
 app.post("/work", function(req, res) {
 	let task = req.body.newTask;

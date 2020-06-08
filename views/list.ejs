@@ -6,12 +6,15 @@
 
 	<div class="box">
 
-		<% newTask.forEach(function(item){%>
-			<div class="item">
-				<input type="checkbox">
-				<p><%=item.name %></p>
-			</div>	
+		<form action="delete">
+			<% newTask.forEach(function(item){%>
+				<div class="item">
+					<input type="checkbox"name="deleteTask" onchange="this.form.submit()">
+					<p><%=item.name %></p>
+				</div>	
 			<%})%>
+	
+		</form>
 
 			<form class="item" action="/" method="POST">
 				<input type="text" name="newTask" placeholder="New item" autocomplete="off" />
