@@ -17,21 +17,16 @@ Go to the path where the project was saved on your terminal and write this comma
 ```bash
 node app.js
 ```
- Then you will go to your localhost (port 3000) to visualize the To Do list. 
+Then you will go to your localhost (port 3000) to visualize the To Do list. 
 
-
-You will use other two terminal tabs. One for Mongoshell and another one for the Mongod server.
+You will use other two terminal tabs. The Mongod server to connect with the Mongo Database ans the Mongo Shell to see and interact with the database of the project.
 
 ###### Mongod server 
 ```bash
 mongod
 ```
-This command will allow to connect to the Mongo Database.
 
 ###### Mongo shell
 ```bash
 mongo
 ```
-This command will allow to interact with the dabase of the project.
-
-
