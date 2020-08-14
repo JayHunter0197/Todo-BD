@@ -20,7 +20,7 @@ node app.js
 ```
 
 
-You will use other two terminal tabs. The Mongod server to connect with the Mongo Database and the Mongo Shell to see and interact with the database.
+You will open another two terminal tabs. One for the Mongod server to connect with the Mongo Database and the other one for the Mongo Shell to see and interact with the database.
 
 ###### Mongod server 
 ```bash
