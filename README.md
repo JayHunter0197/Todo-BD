@@ -12,18 +12,26 @@ npm i
 
 ## Usage
 
-Go to the path where the project was saved on your terminal and write this command to run the project. Then you will go to your localhost (port 3000) 
+Go to the path where the project was saved on your terminal and write this command to run the project. 
 
 ```bash
 node app.js
 ```
+ Then you will go to your localhost (port 3000) to visualize the To Do list. 
 
-## Usage
 
-You will need two terminal tabs to run it.One for MongoDB and another for Mongoose.
+You will use other two terminal tabs. One for Mongoshell and another one for the Mongod server.
+
+###### Mongod server 
 ```bash
-
-
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
+mongod
 ```
+This command will allow to connect to the Mongo Database.
+
+###### Mongo shell
+```bash
+mongo
+```
+This command will allow to interact with the dabase of the project.
+
+
