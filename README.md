@@ -1,21 +1,29 @@
 # Todo-BD
 
-Foobar is a Python library for dealing with word pluralization.
+A simple To Do list to learn Mongoose with Node.js
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+In order to use this project you will need to install some node_modules
 
 ```bash
-pip install foobar
+npm i
 ```
 
 ## Usage
 
-```python
-import foobar
+Go to the path where the project was saved on your terminal and write this command to run the project. Then you will go to your localhost (port 3000) 
 
-foobar.pluralize('word') # returns 'words'
+```bash
+node app.js
+```
+
+## Usage
+
+You will need two terminal tabs to run it.One for MongoDB and another for Mongoose.
+```bash
+
+
 foobar.pluralize('goose') # returns 'geese'
 foobar.singularize('phenomena') # returns 'phenomenon'
 ```
