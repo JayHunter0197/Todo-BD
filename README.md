@@ -19,7 +19,7 @@ node app.js
 ```
 Then you will go to your localhost (port 3000) to visualize the To Do list. 
 
-You will use other two terminal tabs. The Mongod server to connect with the Mongo Database ans the Mongo Shell to see and interact with the database of the project.
+You will use other two terminal tabs. The Mongod server to connect with the Mongo Database and the Mongo Shell to see and interact with the database.
 
 ###### Mongod server 
 ```bash
