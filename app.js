@@ -121,11 +121,25 @@ app.get("/:customListName", function(req,res){
 app.post("/", function(req, res) {
 	// Obtain the item enter by the user and save it in the schema
 	 const itenName = req.body.newTask;
+	 const listName = req.body.list; 
+
 	 const listItem = new Item({name: itenName}); 
-	 listItem.save();
-	 res.redirect("/");
+
+	 if(listName == "Today")
+	 {
+		listItem.save();
+	 	res.redirect("/");
+	 }
+
+	 else	
+	 {
+		List.findOne({name: listName}, function(err, foundList){
+			foundList.items.push(listItem);
+			foundList.save();
+			res.redirect("/"+listName); 
+		});
+	 }
 	 
-	
 });
 /**
  * * Delete an item from the ToDo list 
